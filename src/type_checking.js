@@ -12,9 +12,10 @@
 export function typeOf(obj) {
     const toString = Object.prototype.toString;
     const typeMap = {
-        '[object Boolean]': 'boolean',
-        '[object Number]': 'number',
         '[object String]': 'string',
+        '[object Number]': 'number',
+        '[object Boolean]': 'boolean',
+        '[object Symbol]': 'symbol',
         '[object Undefined]': 'undefined',
         '[object Null]': 'null',
         '[object Object]': 'object',
@@ -22,10 +23,12 @@ export function typeOf(obj) {
         '[object Function]': 'function',
         '[object Date]': 'date',
         '[object RegExp]': 'regExp',
+        '[object Error]': 'error'
     };
 
     return typeMap[toString.call(obj)];
 }
+
 /**
  * check HTML element
  * @param {Object} value
@@ -59,5 +62,3 @@ export function isNodeList(value) {
 export function isSvg(value) {
     return value !== undefined && value instanceof SVGElement;
 }
-
-
